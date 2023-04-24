@@ -43,9 +43,11 @@ $title = "{$batman->getName()} Vs. {$superman->getName()}";
     <h2>Salutation</h2>
     <div>
         <?= $batman->sayHello( $superman ) ?>
+        <?= score($batman, $superman) ?>
     </div>
     <div>
         <?= $superman->sayHello( $batman ) ?>
+        <?= score($batman, $superman) ?>
     </div>
 
 </body>
