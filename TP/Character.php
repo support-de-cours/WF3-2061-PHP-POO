@@ -57,8 +57,10 @@ class Character
     // Methods definition
     // --
 
-    public function __construct()
+    public function __construct($name, $xp)
     {
+        $this->name = $name;
+        $this->xp = $xp;
     }
 
     public function sayHello(): string
