@@ -1,14 +1,5 @@
 <?php
 
-// Possede 
-// une constante "4 roues"
-// une propriete de "marque"
-// une propriete de "model"
-// une propriete de "couleur"
-// une propriete etat du vehicule
-// une méthode de "demarrage"
-// une méthode d' "arret"
-
 class Car 
 {
     /**
@@ -46,6 +37,8 @@ class Car
      * @default false
      */
     private bool $isStarted = false;
+
+    private ?Character $driver = null;
 
 
     public function __construct($brand, $model, $color)
@@ -126,5 +119,25 @@ class Car
     public function getIsStarted(): bool
     {
         return $this->isStarted;
+    }
+
+    /**
+     * Get the value of driver
+     */ 
+    public function getDriver(): ?Character
+    {
+        return $this->driver;
+    }
+
+    /**
+     * Set the value of driver
+     *
+     * @return  self
+     */ 
+    public function setDriver(Character $driver): self
+    {
+        $this->driver = $driver;
+
+        return $this;
     }
 }
