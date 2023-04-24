@@ -76,13 +76,45 @@ class Character
         return "{$this->name} salue {$opponent->getName()}";
     }
 
-    public function attack(): self
+    /**
+     * Character proceed to an Attack to him opponent
+     * $coef params will be override by the SuperAttack method
+     *
+     * @param Character $opponent
+     * @param integer $coef
+     * @return self
+     */
+    public function attack(Character $opponent, int $coef=1): self
     {
+        switch ($this->xp)
+        {
+            case self::NOVICE:
+                $opponent->setHp( $opponent->getHp() - (10 * $coef) );
+            break;
+
+            case self::MEDIUM:
+                $opponent->setHp( $opponent->getHp() - (20 * $coef) );
+            break;
+
+            case self::EXPERT:
+                $opponent->setHp( $opponent->getHp() - (30 * $coef) );
+            break;
+        }
+
         return $this;
     }
 
-    public function superAttack(): self
+    /**
+     * Character proceed to a Super Attack to him opponent
+     * A Super Attack is the same of a double attack
+     *
+     * @param Character $opponent
+     * @return self
+     */
+    public function superAttack(Character $opponent): self
     {
+        $this->attack($opponent, 2);
+
         return $this;
     }
 
@@ -135,18 +167,18 @@ class Character
         return $this->hp;
     }
 
-    // /**
-    //  * Set Health Point of the Character
-    //  *
-    //  * @param integer $hp
-    //  * @return self
-    //  */
-    // public function setHp(int $hp): self
-    // {
-    //     $this->hp = $hp;
+    /**
+     * Set Health Point of the Character
+     *
+     * @param integer $hp
+     * @return self
+     */
+    public function setHp(int $hp): self
+    {
+        $this->hp = $hp;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     /**
      * Get the experience of the character

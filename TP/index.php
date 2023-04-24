@@ -50,5 +50,28 @@ $title = "{$batman->getName()} Vs. {$superman->getName()}";
         <?= score($batman, $superman) ?>
     </div>
 
+
+    <hr>
+
+    <h2>Début du combat</h2>
+
+    <div>
+        Batman attaque Superman
+        <?php $batman->attack( $superman ) ?>
+        <?= score($batman, $superman) ?>
+    </div>
+
+    <div>
+        Superman riposte d'une attaque
+        <?php $superman->attack( $batman ) ?>
+        <?= score($batman, $superman) ?>
+    </div>
+    <div>
+        suivi d'une super attaque
+        <?php $superman->superAttack( $batman ) ?>
+        <?= score($batman, $superman) ?>
+    </div>
+
+
 </body>
 </html>
