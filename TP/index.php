@@ -38,5 +38,15 @@ $title = "{$batman->getName()} Vs. {$superman->getName()}";
         <div>Experience : <?= $superman->getXp() ?></div>
     </fieldset>
 
+
+
+    <h2>Salutation</h2>
+    <div>
+        <?= $batman->sayHello( $superman ) ?>
+    </div>
+    <div>
+        <?= $superman->sayHello( $batman ) ?>
+    </div>
+
 </body>
 </html>

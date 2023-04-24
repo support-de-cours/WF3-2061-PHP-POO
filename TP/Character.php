@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Character as GlobalCharacter;
 
 class Character 
 {
@@ -63,9 +65,15 @@ class Character
         $this->xp = $xp;
     }
 
-    public function sayHello(): string
+    /**
+     * The character say hello to him opponent
+     *
+     * @param Character $opponent
+     * @return string
+     */
+    public function sayHello(Character $opponent): string
     {
-        return "";
+        return "{$this->name} salue {$opponent->getName()}";
     }
 
     public function attack(): self
