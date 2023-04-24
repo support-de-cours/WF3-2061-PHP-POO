@@ -125,18 +125,18 @@ class Character
         return $this->hp;
     }
 
-    /**
-     * Set Health Point of the Character
-     *
-     * @param integer $hp
-     * @return self
-     */
-    public function setHp(int $hp): self
-    {
-        $this->hp = $hp;
+    // /**
+    //  * Set Health Point of the Character
+    //  *
+    //  * @param integer $hp
+    //  * @return self
+    //  */
+    // public function setHp(int $hp): self
+    // {
+    //     $this->hp = $hp;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Get the experience of the character
@@ -148,16 +148,16 @@ class Character
         return $this->xp;
     }
 
-    /**
-     * Set the experience of the character
-     *
-     * @param integer $xp
-     * @return self
-     */
-    public function setXp(int $xp): self
-    {
-        $this->xp = $xp;
+    // /**
+    //  * Set the experience of the character
+    //  *
+    //  * @param integer $xp
+    //  * @return self
+    //  */
+    // public function setXp(int $xp): self
+    // {
+    //     $this->xp = $xp;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
