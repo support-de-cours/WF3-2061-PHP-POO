@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Controller;
+namespace MaSuperApp\V2\Controller;
 
-use App\Abstract\Vehicle;
+use MaSuperApp\V2\Abstract\Vehicle;
 
 class Car extends Vehicle
 {

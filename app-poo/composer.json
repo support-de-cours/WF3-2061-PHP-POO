@@ -2,7 +2,7 @@
     "name": "arnaud/app-poo",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "MaSuperApp\\V2\\": "src/"
         }
     },
     "authors": [

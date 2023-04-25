@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Abstract;
+namespace MaSuperApp\V2\Abstract;
 
 abstract class Vehicle
 {
