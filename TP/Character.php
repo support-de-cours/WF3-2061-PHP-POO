@@ -109,6 +109,7 @@ class Character
      * A Super Attack is the same of a double attack
      *
      * @param Character $opponent
+     * @see Character::attack()
      * @return self
      */
     public function superAttack(Character $opponent): self
