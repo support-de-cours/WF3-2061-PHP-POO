@@ -2,7 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-use App\Car;
+use App\Controller\Car;
 
 $car1 = new Car("Tesla");
 
