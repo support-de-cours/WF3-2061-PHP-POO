@@ -32,7 +32,6 @@ abstract class Vehicle
         return $this;
     }
 
-
     /**
      * Get the value of isStarted
      */ 
@@ -52,7 +51,6 @@ abstract class Vehicle
 
         return $this;
     }
-
 
     public function start(): self
     {
