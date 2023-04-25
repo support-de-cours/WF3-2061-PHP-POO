@@ -1,7 +1,5 @@
 <?php
 
-use Character as GlobalCharacter;
-
 class Character 
 {
     // Constants definition
@@ -12,15 +10,15 @@ class Character
      * 
      * @var int
      */
-
     const NOVICE = 1;
+
     /**
      * Medium Level
      * 
      * @var int
      */
-
     const MEDIUM = 2;
+
     /**
      * Expert Level
      * 
@@ -53,13 +51,13 @@ class Character
      * @var integer
      * @default 0
      */
-    private int $xp = 0;
+    private int $xp = self::NOVICE;
 
     
     // Methods definition
     // --
 
-    public function __construct(string $name, int $xp)
+    public function __construct(string $name, int $xp=self::NOVICE)
     {
         $this->name = $name;
         $this->xp = $xp;
@@ -101,6 +99,8 @@ class Character
             break;
         }
 
+        $this->levelUp( $opponent );
+
         return $this;
     }
 
@@ -118,18 +118,70 @@ class Character
         return $this;
     }
 
-    public function secretAttack(): self
+    /**
+     * Character proceed to a Secret Attack to him opponent
+     * Secret Attack set the Health Point of the opponent to Zero
+     *
+     * @param Character $opponent
+     * @return self
+     */
+    public function secretAttack(Character $opponent): self
     {
+        if ($opponent->getHp() < 50)
+        {
+            $opponent->setHp( 0 );
+        }
+
+        $this->levelUp( $opponent );
+
         return $this;
     }
 
+    /**
+     * Add 10 Health Point to a character
+     *
+     * @return self
+     */
     public function care(): self
     {
+        $this->hp += 10;
+
         return $this;
     }
 
-    public function levelUp(): self
+    /**
+     * Up the character Experience
+     * Only if the opponent is dead
+     *
+     * @param Character $opponent
+     * @return self
+     */
+    public function levelUp(Character $opponent): self
     {
+        if ($opponent->getHp() === 0)
+        {
+            switch ($this->xp)
+            {
+                case self::NOVICE: 
+                    // $this->setXp( self::MEDIUM );
+                    $this->xp = self::MEDIUM;
+                break;
+
+                case self::MEDIUM: 
+                    $this->setXp( self::EXPERT );
+                break;
+
+                case self::EXPERT: 
+                    // Do nothing
+                    // Already the Boss
+                break;
+
+                default:
+                    $this->setXp( self::NOVICE );
+                    
+            }
+        }
+
         return $this;
     }
 
@@ -190,16 +242,16 @@ class Character
         return $this->xp;
     }
 
-    // /**
-    //  * Set the experience of the character
-    //  *
-    //  * @param integer $xp
-    //  * @return self
-    //  */
-    // public function setXp(int $xp): self
-    // {
-    //     $this->xp = $xp;
+    /**
+     * Set the experience of the character
+     *
+     * @param integer $xp
+     * @return self
+     */
+    public function setXp(int $xp): self
+    {
+        $this->xp = $xp;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 }

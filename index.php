@@ -55,6 +55,7 @@ echo "<br>";
 $mySecondCar->setColor("red");
 // $mySecondCar->brand = "Fiat";
 
+// unset($myFirstCar);
 
 echo "<hr>";
 echo "Voiture 2 - Marque : {$mySecondCar->getBrand()}";
